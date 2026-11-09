@@ -11,9 +11,10 @@ export const site = {
   city: 'Ravenna',
   foundingYear: '2015',
 
-  // Dominio atelierdiarchitettura.com OFFLINE (non risolve): resta finto finché non
-  // confermato/rinnovato. Serve un URL valido per canonical/OG/sitemap.
-  domain: 'https://esempio-dominio.it',
+  // Dominio per canonical/OG/JSON-LD: arriva da `site` in astro.config.mjs
+  // (SITE_URL su Netlify, altrimenti l'URL del sito che Netlify fornisce in build).
+  // atelierdiarchitettura.com è offline: resta il fallback finché non confermato.
+  domain: String(import.meta.env.SITE || 'https://esempio-dominio.it').replace(/\/$/, ''),
 
   email: 'archigentilini81@gmail.com', // gmail — valutare indirizzo su dominio
   phoneDisplay: '348 929 1092',
